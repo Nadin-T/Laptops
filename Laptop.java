@@ -15,4 +15,25 @@ public class Laptop {
         this.sizeHHD = sizeHHD;
         this.color = color;
     }
+
+    // get
+    public String getBrand() {
+        return brand;
+    }
+
+    public String getOS() {
+        return os;
+    }
+
+    public int getRAM() {
+        return ram;
+    }
+
+    public int getSizeHHD() {
+        return sizeHHD;
+    }
+
+    public String getColor() {
+        return color;
+    }
 }

@@ -1,5 +1,7 @@
 package Laptops;
 
+import java.util.Objects;
+
 public class Laptop {
     private String brand;
     private String os;
@@ -56,5 +58,36 @@ public class Laptop {
 
     public void setColor(String color) {
         this.color = color;
+    }
+
+    @Override
+    public String toString() {
+        String result = "Бренд ноутбука: " + brand + System.lineSeparator()
+                + "Операционная система: " + os + System.lineSeparator()
+                + "ОЗУ: " + ram + System.lineSeparator()
+                + "Объем жёсткого диска: " + sizeHHD + System.lineSeparator()
+                + "Цвет: " + color;
+
+        return result;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+
+        if (obj == null || getClass() != obj.getClass())
+            return false;
+
+        Laptop lp = (Laptop) obj;
+
+        return brand.equals(lp.brand) && os.equals(lp.os) && ram == lp.ram
+        && sizeHHD == lp.sizeHHD && color.equals(lp.color);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(brand, os, ram, sizeHHD, color);
     }
 }

@@ -1,5 +1,6 @@
 package Laptops;
 
+import java.util.Map;
 import java.util.Objects;
 
 public class Laptop {
@@ -83,11 +84,48 @@ public class Laptop {
         Laptop lp = (Laptop) obj;
 
         return brand.equals(lp.brand) && os.equals(lp.os) && ram == lp.ram
-        && sizeHHD == lp.sizeHHD && color.equals(lp.color);
+                && sizeHHD == lp.sizeHHD && color.equals(lp.color);
     }
 
     @Override
     public int hashCode() {
         return Objects.hash(brand, os, ram, sizeHHD, color);
+    }
+
+    public boolean matchesCriteria(Map<String, Object> criteria) {
+        for (Map.Entry<String, Object> entry : criteria.entrySet()) {
+            String key = entry.getKey();
+            Object value = entry.getValue();
+            switch (key) {
+                case "brand":
+                if (!brand.equals(value)) {
+                    return false;
+                }
+                break;
+                case "ram":
+                    if (ram < (int) value) {
+                        return false;
+                    }
+                    break;
+                case "sizeHHD":
+                    if (sizeHHD < (int) value) {
+                        return false;
+                    }
+                    break;
+                case "os":
+                    if (!os.equals(value)) {
+                        return false;
+                    }
+                    break;
+                case "color":
+                    if (!color.equals(value)) {
+                        return false;
+                    }
+                    break;
+                default:
+                    break;
+            }
+        }
+        return true;
     }
 }

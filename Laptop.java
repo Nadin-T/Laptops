@@ -36,4 +36,25 @@ public class Laptop {
     public String getColor() {
         return color;
     }
+
+    // set
+    public void setBrand(String brand) {
+        this.brand = brand;
+    }
+
+    public void setOS(String os) {
+        this.os = os;
+    }
+
+    public void setRAM(int ram) {
+        this.ram = ram;
+    }
+
+    public void setSizeHHD(int sizeHHD) {
+        this.sizeHHD = sizeHHD;
+    }
+
+    public void setColor(String color) {
+        this.color = color;
+    }
 }
